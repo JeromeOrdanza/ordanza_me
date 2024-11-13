@@ -1,21 +1,28 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ServiceComponent } from './service/service.component';
-import { ContactComponent } from './contact/contact.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { ComponentAboutComponent } from "./component-about/component-about.component";
+import { ComponentContactComponent } from "./component-contact/component-contact.component";
+import { ComponentHomeComponent } from "./component-home/component-home.component";
+import { ComponentServiceComponent } from "./component-service/component-service.component";
+import { ComponentNotFoundComponent } from "./component-not-found/component-not-found.component";
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServiceComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '**', component: NotFoundComponent }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+@Component({
+  selector: 'app-root', 
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    ComponentAboutComponent,
+    ComponentContactComponent,
+    ComponentHomeComponent,
+    ComponentServiceComponent,
+    ComponentNotFoundComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppRoutingModule { }
+export class AppComponent {
+  title = 'ORDANZA_ME';
+}
